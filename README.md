@@ -17,4 +17,4 @@ Backend:
 1. Navigate to the backend directory.
 2. Run the main application file: `npm run dev`.
 
-There are also Cypress files in the Cypress folder in Frontend. 
+There are also testcases in the Cypress folder in Frontend. 
