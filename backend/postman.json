@@ -1,0 +1,614 @@
+{
+    "info": {
+        "name": "CAMS API Collection",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "User Management",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/users/login",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "users",
+                                "login"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Signup",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"newuser\",\n    \"email\": \"newuser@example.com\",\n    \"password\": \"newpassword\",\n    \"role\": \"instructor\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/users/signup",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "users",
+                                "signup"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/users/logout",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "users",
+                                "logout"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Users (Admin Only)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/users/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "users",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Specific User (Admin Only)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/users/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create User (Admin Only)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"anotheruser\",\n    \"email\": \"anotheruser@example.com\",\n    \"password\": \"anotherpassword\",\n    \"role\": \"admin\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/users/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "users",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update User (Admin Only)",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"updatedemail@example.com\",\n    \"username\": \"updatedusername\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/users/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete User (Admin Only)",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}"
+                            ]
+                        ],
+                        "url": {
+                            "raw": "{{host}}/users/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Course Management",
+            "item": [
+                {
+                    "name": "Create Course",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"courseName\": \"Introduction to Business\",\n    \"courseCode\": \"BUS101\",\n    \"instructorId\": \"{{instructorId}}\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/courses/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "courses",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Courses",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/courses/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "courses",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Specific Course",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/courses/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "courses",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Course",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"courseName\": \"Advanced Business\",\n    \"courseCode\": \"BUS201\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/courses/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "courses",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Course",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/courses/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "courses",
+                                ":id"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Assessment Management",
+            "item": [
+                {
+                    "name": "Create Assessment",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"courseId\": \"{{courseId}}\",\n    \"title\": \"Final Exam\",\n    \"maxPoints\": 100,\n    \"assessmentDate\": \"2024-05-20T00:00:00Z\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/assessments/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "assessments",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Assessments",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/assessments/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "assessments",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Specific Assessment",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/assessments/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "assessments",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Assessment",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Updated Final Exam\",\n    \"maxPoints\": 150,\n    \"assessmentDate\": \"2024-05-25T00:00:00Z\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/assessments/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "assessments",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Assessment",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            ]
+                        ],
+                        "url": {
+                            "raw": "{{host}}/assessments/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "assessments",
+                                ":id"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Grade Management",
+            "item": [
+                {
+                    "name": "Record Grade",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"studentId\": \"{{studentId}}\",\n    \"assessmentId\": \"{{assessmentId}}\",\n    \"score\": 88\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/grades/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "grades",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "View Grades for an Assessment",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/grades/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "grades",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Specific Grade",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/grades/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "grades",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Grade",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"score\": 95\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/grades/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "grades",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Grade",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            ]
+                        ],
+                        "url": {
+                            "raw": "{{host}}/grades/:id",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "grades",
+                                ":id"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
