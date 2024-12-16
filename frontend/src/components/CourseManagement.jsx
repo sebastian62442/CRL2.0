@@ -14,7 +14,7 @@ function CourseManagement() {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await axiosWithAuth.get('https://course-management-system-tu20.onrender.com/api/courses'); // Replace '/api/courses' with the actual backend endpoint
+                const response = await axiosWithAuth.get('http://localhost:8000/api/courses'); // Replace '/api/courses' with the actual backend endpoint
                 setCourses(response.data);
                 setLoading(false);
             } catch (error) {

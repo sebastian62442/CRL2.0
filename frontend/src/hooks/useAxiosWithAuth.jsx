@@ -9,7 +9,7 @@ export const useAxiosWithAuth = () => {
     // useMemo ensures that the axios instance is memoized and not recreated on every render.
     const axiosInstance = useMemo(() => {
         const instance = axios.create({
-            baseURL: 'https://course-management-system-tu20.onrender.com/api' // Change this to your API's base URL
+            baseURL: 'http://localhost:8000/api' // Change this to your API's base URL
         });
 
         instance.interceptors.request.use(

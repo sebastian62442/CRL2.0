@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';  // This will be used for navigation
 
 const axiosWithAuth = axios.create({
-    baseURL: 'https://course-management-system-tu20.onrender.com/api' // Change this to your API's base URL
+    baseURL: 'http://localhost:8000/api' // Change this to your API's base URL
 });
 
 // Request Interceptor

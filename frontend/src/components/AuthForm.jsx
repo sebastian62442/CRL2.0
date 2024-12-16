@@ -33,7 +33,7 @@ function AuthForm() {
         event.preventDefault();
         const endpoint = isLogin ? 'login' : 'signup';
         try {
-            const response = await axios.post(`https://course-management-system-tu20.onrender.com/api/users/${endpoint}`, formData);
+            const response = await axios.post(`http://localhost:8000/api/users/${endpoint}`, formData);
             login(response.data.token, response.data.role, response.data.username);
             // Direct users based on their role
             if (response.data.role === "admin") {
